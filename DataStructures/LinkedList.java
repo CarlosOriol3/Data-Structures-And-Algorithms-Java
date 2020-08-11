@@ -1,18 +1,6 @@
 package DataStructures;
 
-import java.util.Iterator;
-
-class Node<T> {
-    public T value;
-    public Node<T> next;
-
-    Node(T value) {
-        this.value = value;
-        this.next = null;
-    }
-}
-
-public class LinkedList<T> implements Iterable<T> {
+public class LinkedList<T> {
     private int length = 0;
     private Node<T> head = null;
     private Node<T> tail = null;
@@ -64,9 +52,5 @@ public class LinkedList<T> implements Iterable<T> {
         return listResult;
     }
 
-    @Override
-    public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+   
 }
