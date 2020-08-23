@@ -1,8 +1,11 @@
 package DataStructures;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import jdk.nashorn.api.tree.Tree;
 
 public class BinarySearchTree {
     private class TreeNode {
@@ -104,7 +107,6 @@ public class BinarySearchTree {
     }
 
     public ArrayList<Integer> postorderTraversal(TreeNode node, ArrayList<Integer> list){
-        
         if(node.left != null){
             postorderTraversal(node.left, list);
         }
@@ -160,4 +162,28 @@ public class BinarySearchTree {
         }
         return bfsArray;
     }
+
+    //Recursive BFS
+    public ArrayList BFSR(Queue<TreeNode> queue, ArrayList<Integer> bfsArray) {
+        if(queue.size() == 0){
+            return bfsArray;
+        }
+
+        TreeNode currentNode = queue.remove();
+        bfsArray.add(currentNode.value);
+
+        if(currentNode.left != null){
+            queue.add(currentNode.left);
+        }
+
+        if(currentNode.right != null){
+            queue.add(currentNode.right);
+        }
+        return BFSR(queue, bfsArray);
+    }
+
+    public ArrayList BFSR() {
+        return BFSR(new LinkedList<TreeNode>(Arrays.asList(this.root)) , new ArrayList<Integer>());
+    }
+
 }

@@ -1,5 +1,8 @@
 package DataStructures;
 
+import java.util.ArrayList;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -59,5 +62,8 @@ public class Main {
         System.out.println("preorder: "+myTree.preorderToString());
         System.out.println("inorder: "+myTree.inorderToString());
         System.out.println("postorder: "+myTree.postorderToString());
+
+        
+        System.out.println(myTree.BFSR());
     }
 }
